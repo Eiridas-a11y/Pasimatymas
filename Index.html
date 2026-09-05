@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vienas klausimas 💖</title>
+
+    <!-- EMAILJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,.35), transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,.25), transparent 30%),
+                linear-gradient(135deg, #ff758c, #ff7eb3, #a66cff);
+
+            color: #2d1b2e;
+
+            padding: 20px;
+        }
+
+        /* =========================
+           FONDO
+        ========================= */
+
+        .bg-heart {
+            position: fixed;
+            bottom: -60px;
+
+            color: rgba(255,255,255,.3);
+
+            pointer-events: none;
+
+            animation: floatHeart linear infinite;
+
+            z-index: 0;
+        }
+
+        .h1 {
+            left: 8%;
+            font-size: 25px;
+            animation-duration: 9s;
+        }
+
+        .h2 {
+            left: 25%;
+            font-size: 18px;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+
+        .h3 {
+            left: 50%;
+            font-size: 30px;
+            animation-duration: 10s;
+            animation-delay: 3s;
+        }
+
+        .h4 {
+            left: 75%;
+            font-size: 20px;
+            animation-duration: 13s;
+            animation-delay: 1s;
+        }
+
+        .h5 {
+            left: 90%;
+            font-size: 35px;
+            animation-duration: 11s;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatHeart {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           KORTELĖ
+        ========================= */
+
+        .card {
+
+            position: relative;
+            z-index: 10;
+
+            width: min(94%, 570px);
+
+            max-height: 94vh;
+            overflow-y: auto;
+
+            padding: 45px 40px;
+
+            background: rgba(255,255,255,.95);
+
+            backdrop-filter: blur(20px);
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 30px 80px rgba(80,20,60,.30);
+
+            text-align: center;
+
+            animation: cardIn .7s ease;
+        }
+
+        @keyframes cardIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* =========================
+           ŠIRDELĖ
+        ========================= */
+
+        .main-heart {
+
+            width: 80px;
+            height: 80px;
+
+            margin: 0 auto 22px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff416c,
+                    #ff4b7d
+                );
+
+            color: white;
+
+            font-size: 38px;
+
+            box-shadow:
+                0 12px 30px rgba(255,65,108,.35);
+
+            animation: heartbeat 1.6s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        /* =========================
+           TEKSTAS
+        ========================= */
+
+        h1 {
+
+            margin: 0 0 12px;
+
+            font-size: clamp(25px,5vw,34px);
+
+            line-height: 1.25;
+        }
+
+        .subtext {
+
+            color: #777;
+
+            margin-bottom: 30px;
+
+            font-size: 16px;
+        }
+
+        /* =========================
+           MYGTUKAI
+        ========================= */
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 18px;
+
+            min-height: 75px;
+        }
+
+        .btn {
+
+            border: none;
+
+            border-radius: 999px;
+
+            padding: 14px 28px;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform .35s ease,
+                opacity .35s ease,
+                padding .35s ease,
+                width .35s ease;
+        }
+
+        #yesBtn {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #20bf55,
+                    #01baef
+                );
+
+            color: white;
+
+            box-shadow:
+                0 10px 25px rgba(32,191,85,.3);
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.07);
+        }
+
+        #noBtn {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff416c,
+                    #ff4b2b
+                );
+
+            color: white;
+
+            box-shadow:
+                0 10px 25px rgba(255,65,108,.25);
+
+            transform-origin: center;
+        }
+
+        .reaction {
+
+            min-height: 28px;
+
+            margin-top: 18px;
+
+            color: #ff416c;
+
+            font-weight: 600;
+
+            opacity: 0;
+
+            transition: .25s;
+        }
+
+        .reaction.show {
+            opacity: 1;
+        }
+
+        /* =========================
+           PASIMATYMO EKRANAS
+        ========================= */
+
+        .hidden {
+            display: none !important;
+        }
+
+        .date-title {
+
+            font-size: 30px;
+
+            margin: 0 0 8px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff416c,
+                    #a66cff
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .date-description {
+
+            color: #777;
+
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           SEKCIJOS
+        ========================= */
+
+        .selection-section {
+
+            text-align: left;
+
+            margin-bottom: 25px;
+        }
+
+        .selection-title {
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+
+            color: #444;
+
+            font-size: 16px;
+        }
+
+        .options {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 9px;
+        }
+
+        .option {
+
+            border: 2px solid #f2dfe6;
+
+            background: #fffafd;
+
+            border-radius: 14px;
+
+            padding: 12px 7px;
+
+            cursor: pointer;
+
+            text-align: center;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            color: #555;
+
+            transition: .2s;
+        }
+
+        .option:hover {
+
+            border-color: #ff9abd;
+
+            transform: translateY(-2px);
+        }
+
+        .option.selected {
+
+            border-color: #ff4f7b;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f5,
+                    #f8efff
+                );
+
+            color: #ff416c;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 5px 15px rgba(255,65,108,.12);
+        }
+
+        .option .emoji {
+
+            display: block;
+
+            font-size: 22px;
+
+            margin-bottom: 4px;
+        }
+
+        /* =========================
+           SAVO ĮVEDIMAS
+        ========================= */
+
+        .custom-input {
+
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 13px 15px;
+
+            border: 2px solid #f0dce3;
+
+            border-radius: 13px;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+            display: none;
+
+            background: #fffafd;
+        }
+
+        .custom-input.show {
+            display: block;
+        }
+
+        .custom-input:focus {
+
+            border-color: #ff7eb3;
+
+            box-shadow:
+                0 0 0 4px rgba(255,126,179,.12);
+        }
+
+        /* =========================
+           DATA
+        ========================= */
+
+        .date-input {
+
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border: 2px solid #f0dce3;
+
+            border-radius: 13px;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 16px;
+
+            background: #fffafd;
+        }
+
+        .date-input:focus {
+
+            border-color: #ff7eb3;
+        }
+
+        /* =========================
+           ŽINUTĖ
+        ========================= */
+
+        textarea {
+
+            width: 100%;
+
+            min-height: 80px;
+
+            padding: 13px 15px;
+
+            border: 2px solid #f0dce3;
+
+            border-radius: 13px;
+
+            resize: vertical;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 15px;
+        }
+
+        textarea:focus {
+
+            border-color: #ff7eb3;
+        }
+
+        /* =========================
+           PATEIKIMO MYGTUKAS
+        ========================= */
+
+        .submit-btn {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 16px;
+
+            border-radius: 999px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff416c,
+                    #a66cff
+                );
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px rgba(166,108,255,.3);
+
+            transition: .25s;
+        }
+
+        .submit-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 14px 30px rgba(166,108,255,.4);
+        }
+
+        /* =========================
+           SĖKMĖS EKRANAS
+        ========================= */
+
+        .success {
+
+            animation: successIn .7s ease;
+        }
+
+        @keyframes successIn {
+
+            from {
+                opacity: 0;
+                transform: scale(.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .success-heart {
+
+            font-size: 75px;
+
+            animation: heartbeat 1.4s infinite;
+        }
+
+        .success h2 {
+
+            font-size: 38px;
+
+            margin: 15px 0 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff416c,
+                    #a66cff
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .success p {
+
+            color: #666;
+
+            line-height: 1.6;
+
+            font-size: 17px;
+        }
+
+        .chosen {
+
+            margin-top: 20px;
+
+            padding: 17px;
+
+            border-radius: 17px;
+
+            background: #fff1f5;
+
+            color: #555;
+
+            text-align: left;
+
+            line-height: 1.8;
+        }
+
+        /* =========================
+           KONFETI
+        ========================= */
+
+        .confetti {
+
+            position: fixed;
+
+            top: -30px;
+
+            z-index: 100;
+
+            pointer-events: none;
+
+            animation:
+                confettiFall 3s linear forwards;
+        }
+
+        @keyframes confettiFall {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0);
+
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           TELEFONAS
+        ========================= */
+
+        @media(max-width:600px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .card {
+
+                width: 96%;
+
+                padding: 32px 20px;
+
+                border-radius: 25px;
+
+                max-height: 96vh;
+            }
+
+            .options {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .option {
+
+                padding: 11px 5px;
+
+                font-size: 13px;
+            }
+
+            .buttons {
+
+                gap: 10px;
+            }
+
+            .btn {
+
+                padding: 12px 20px;
+
+                font-size: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         FONO ŠIRDELĖS
+    ========================= -->
+
+    <div class="bg-heart h1">♡</div>
+    <div class="bg-heart h2">♥</div>
+    <div class="bg-heart h3">♡</div>
+    <div class="bg-heart h4">♥</div>
+    <div class="bg-heart h5">♡</div>
+
+
+    <!-- =========================
+         KORTELĖ
+    ========================= -->
+
+    <div class="card">
+
+
+        <!-- ==================================================
+             1. KLAUSIMAS
+        ================================================== -->
+
+        <div id="questionScreen">
+
+            <div class="main-heart">
+                💖
+            </div>
+
+            <h1 id="question">
+
+                Ar aš galėčiau tave
+                pakviesti į pasimatymą? 🌹
+
+            </h1>
+
+            <p class="subtext" id="subtext">
+
+                Turiu tau vieną labai svarbų klausimą... 👀
+
+            </p>
+
+
+            <div class="buttons">
+
+                <button
+                    class="btn"
+                    id="yesBtn"
+                    onclick="sayYes()">
+
+                    Taip! 💖
+
+                </button>
+
+
+                <button
+                    class="btn"
+                    id="noBtn"
+                    onclick="sayNo()">
+
+                    Ne 😢
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="reaction"
+                id="reaction">
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             2. PASIMATYMO PASIRINKIMAS
+        ================================================== -->
+
+        <div
+            id="dateScreen"
+            class="hidden">
+
+
+            <h2 class="date-title">
+
+                Tai kada susitinkam? 💕
+
+            </h2>
+
+
+            <p class="date-description">
+
+                Išsirink mūsų pasimatymo detales ✨
+
+            </p>
+
+
+            <!-- =========================
+                 DATA
+            ========================= -->
+
+            <div class="selection-section">
+
+                <div class="selection-title">
+
+                    📅 Kurią dieną?
+
+                </div>
+
+
+                <input
+                    type="date"
+                    id="date"
+                    class="date-input">
+
+            </div>
+
+
+            <!-- =========================
+                 LAIKAS
+            ========================= -->
+
+            <div class="selection-section">
+
+                <div class="selection-title">
+
+                    🕐 Kelintą valandą?
+
+                </div>
+
+
+                <div class="options" id="timeOptions">
+
+                    <button class="option" data-value="10:00">
+                        🕐<br>10:00
+                    </button>
+
+                    <button class="option" data-value="11:00">
+                        🕐<br>11:00
+                    </button>
+
+                    <button class="option" data-value="12:00">
+                        🕐<br>12:00
+                    </button>
+
+                    <button class="option" data-value="13:00">
+                        🕐<br>13:00
+                    </button>
+
+                    <button class="option" data-value="14:00">
+                        🕐<br>14:00
+                    </button>
+
+                    <button class="option" data-value="15:00">
+                        🕐<br>15:00
+                    </button>
+
+                    <button class="option" data-value="16:00">
+                        🕐<br>16:00
+                    </button>
+
+                    <button class="option" data-value="17:00">
+                        🕐<br>17:00
+                    </button>
+
+                    <button class="option" data-value="18:00">
+                        🕐<br>18:00
+                    </button>
+
+                    <button class="option" data-value="19:00">
+                        🕐<br>19:00
+                    </button>
+
+                    <button class="option" data-value="20:00">
+                        🕐<br>20:00
+                    </button>
+
+                    <button class="option" data-value="21:00">
+                        🕐<br>21:00
+                    </button>
+
+                    <button class="option" data-value="22:00">
+                        🕐<br>22:00
+                    </button>
+
+                    <button
+                        class="option"
+                        id="customTimeButton">
+
+                        ✏️<br>
+                        Savo laikas
+
+                    </button>
+
+                </div>
+
+
+                <input
+                    type="time"
+                    id="customTime"
+                    class="custom-input">
+
+            </div>
+
+
+            <!-- =========================
+                 VIETA
+            ========================= -->
+
+            <div class="selection-section">
+
+                <div class="selection-title">
+
+                    📍 Kur susitinkam?
+
+                </div>
+
+
+                <div class="options" id="placeOptions">
+
+                    <button class="option" data-value="Akropolis">
+                        🛍️<br>
+                        Akropolis
+                    </button>
+
+                    <button class="option" data-value="Laisvės alėja">
+                        🌆<br>
+                        Laisvės alėja
+                    </button>
+
+                    <button class="option" data-value="Kauno marios">
+                        🌊<br>
+                        Kauno marios
+                    </button>
+
+                    <button class="option" data-value="Santakos parkas">
+                        🌳<br>
+                        Santakos parkas
+                    </button>
+
+                    <button class="option" data-value="Ąžuolynas">
+                        🌲<br>
+                        Ąžuolynas
+                    </button>
+
+                    <button class="option" data-value="Kavinė">
+                        ☕<br>
+                        Kavinė
+                    </button>
+
+                    <button
+                        class="option"
+                        id="customPlaceButton">
+
+                        ✏️<br>
+                        Kita vieta
+
+                    </button>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="customPlace"
+                    class="custom-input"
+                    placeholder="Įrašyk savo vietą...">
+
+            </div>
+
+
+            <!-- =========================
+                 VEIKLA
+            ========================= -->
+
+            <div class="selection-section">
+
+                <div class="selection-title">
+
+                    💕 Ką veiksim?
+
+                </div>
+
+
+                <div class="options" id="activityOptions">
+
+                    <button class="option" data-value="Kava">
+                        ☕<br>
+                        Kava
+                    </button>
+
+                    <button class="option" data-value="Pasivaikščioti">
+                        🚶<br>
+                        Pasivaikščioti
+                    </button>
+
+                    <button class="option" data-value="Pavalgyti">
+                        🍕<br>
+                        Pavalgyti
+                    </button>
+
+                    <button class="option" data-value="Kinas">
+                        🎬<br>
+                        Kinas
+                    </button>
+
+                    <button class="option" data-value="Ledai">
+                        🍦<br>
+                        Ledai
+                    </button>
+
+                    <button class="option" data-value="Žiūrėti saulėlydį">
+                        🌅<br>
+                        Saulėlydis
+                    </button>
+
+                    <button
+                        class="option"
+                        id="customActivityButton">
+
+                        ✏️<br>
+                        Kita veikla
+
+                    </button>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="customActivity"
+                    class="custom-input"
+                    placeholder="Įrašyk savo veiklą...">
+
+            </div>
+
+
+            <!-- =========================
+                 ŽINUTĖ
+            ========================= -->
+
+            <div class="selection-section">
+
+                <div class="selection-title">
+
+                    💌 Dar kažką nori pasakyti?
+
+                </div>
+
+
+                <textarea
+                    id="message"
+                    placeholder="Pvz. Labai laukiu! 🥰"></textarea>
+
+            </div>
+
+
+            <!-- =========================
+                 PATEIKTI
+            ========================= -->
+
+            <button
+                class="submit-btn"
+                onclick="submitDate()">
+
+                💖 Pateikti pasirinkimą
+
+            </button>
+
+        </div>
+
+
+        <!-- ==================================================
+             3. PATVIRTINIMAS
+        ================================================== -->
+
+        <div
+            id="successScreen"
+            class="hidden success">
+
+
+            <div class="success-heart">
+
+                💖
+
+            </div>
+
+
+            <h2>
+
+                Sutarta! 🥰
+
+            </h2>
+
+
+            <p>
+
+                Pasimatymas oficialiai suplanuotas!
+				  Patvirtinimo laiškas išsiųstas!
+
+            </p>
+
+
+            <div
+                class="chosen"
+                id="chosenInfo">
+
+            </div>
+
+
+            <p>
+
+                Iki pasimatymo! 🌹✨
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+
+        /* =====================================================
+           EMAILJS NUSTATYMAI
+           =====================================================
+
+           ČIA ĮRAŠYSI SAVO EMAILJS DUOMENIS.
+        */
+
+
+        const EMAILJS_PUBLIC_KEY =
+            "JXkM9LNsqPF6USKS-";
+
+        const EMAILJS_SERVICE_ID =
+            "service_svnnfkp";
+
+        const EMAILJS_TEMPLATE_ID =
+            "template_2qctjdg";
+
+
+        emailjs.init({
+
+            publicKey:
+                EMAILJS_PUBLIC_KEY
+
+        });
+
+
+        /* =====================================================
+           NE MYGTUKAS
+        ===================================================== */
+
+
+        let noClicks = 0;
+
+
+        const reactions = [
+
+            {
+                question:
+                    "Ar tikrai? 🥺",
+
+                sub:
+                    "Gal norėtum dar pagalvoti?"
+            },
+
+            {
+                question:
+                    "Tikrai ne? 👀",
+
+                sub:
+                    "Aš dar neprarandu vilties..."
+            },
+
+            {
+                question:
+                    "Gal persigalvotum? 😭",
+
+                sub:
+                    "Vienas pasimatymas juk nepakenks..."
+            },
+
+            {
+                question:
+                    "Nu pagalvok dar kartą... 🥹",
+
+                sub:
+                    "Man atrodo, kad kažkas čia ne taip..."
+            },
+
+            {
+                question:
+                    "PASKUTINĖ GALIMYBĖ 😳",
+
+                sub:
+                    "Ar tikrai nori spausti „Ne“?"
+            },
+
+            {
+                question:
+                    "Gerai... 😔",
+
+                sub:
+                    "Bet „Taip“ vis dar laukia tavęs 💖"
+            }
+
+        ];
+
+
+        function sayNo() {
+
+            noClicks++;
+
+
+            const noBtn =
+                document.getElementById("noBtn");
+
+            const yesBtn =
+                document.getElementById("yesBtn");
+
+            const question =
+                document.getElementById("question");
+
+            const subtext =
+                document.getElementById("subtext");
+
+            const reaction =
+                document.getElementById("reaction");
+
+
+            /* NE MAŽĖJA */
+
+            const noScale =
+                Math.max(
+                    0.15,
+                    1 - noClicks * 0.14
+                );
+
+
+            noBtn.style.transform =
+                `scale(${noScale})`;
+
+
+            noBtn.style.paddingLeft =
+                `${Math.max(5, 28 - noClicks * 4)}px`;
+
+
+            noBtn.style.paddingRight =
+                `${Math.max(5, 28 - noClicks * 4)}px`;
+
+
+            /* TAIP DIDĖJA */
+
+            const yesScale =
+                Math.min(
+                    1.8,
+                    1 + noClicks * .13
+                );
+
+
+            yesBtn.style.transform =
+                `scale(${yesScale})`;
+
+
+            /* TEKSTAS */
+
+            const index =
+                Math.min(
+                    noClicks - 1,
+                    reactions.length - 1
+                );
+
+
+            question.innerText =
+                reactions[index].question;
+
+
+            subtext.innerText =
+                reactions[index].sub;
+
+
+            reaction.innerText =
+                reactions[index].question;
+
+
+            reaction.classList.add("show");
+
+
+            /* PO 6 KARTŲ NE DINGSTA */
+
+            if (noClicks >= 6) {
+
+                noBtn.style.transform =
+                    "scale(0)";
+
+                noBtn.style.opacity =
+                    "0";
+
+                noBtn.style.width =
+                    "0";
+
+                noBtn.style.padding =
+                    "0";
+
+                setTimeout(() => {
+
+                    noBtn.style.display =
+                        "none";
+
+                }, 350);
+
+
+                yesBtn.style.transform =
+                    "scale(1.8)";
+
+
+                question.innerText =
+                    "Man atrodo, liko tik vienas pasirinkimas... 👀❤️";
+
+
+                subtext.innerText =
+                    "Mygtukas „Taip“ tavęs laukia 😌";
+            }
+        }
+
+
+        /* =====================================================
+           TAIP
+        ===================================================== */
+
+
+        function sayYes() {
+
+            document
+                .getElementById("questionScreen")
+                .classList
+                .add("hidden");
+
+
+            document
+                .getElementById("dateScreen")
+                .classList
+                .remove("hidden");
+        }
+
+
+        /* =====================================================
+           PASIRINKIMAI
+        ===================================================== */
+
+
+        let selectedTime = "";
+        let selectedPlace = "";
+        let selectedActivity = "";
+
+
+        /* =========================
+           LAIKAS
+        ========================= */
+
+
+        document
+            .querySelectorAll("#timeOptions .option")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        document
+                            .querySelectorAll(
+                                "#timeOptions .option"
+                            )
+                            .forEach(btn =>
+                                btn.classList.remove(
+                                    "selected"
+                                )
+                            );
+
+
+                        this.classList.add(
+                            "selected"
+                        );
+
+
+                        if (
+                            this.id ===
+                            "customTimeButton"
+                        ) {
+
+                            document
+                                .getElementById(
+                                    "customTime"
+                                )
+                                .classList
+                                .add("show");
+
+
+                            selectedTime = "";
+
+                        } else {
+
+                            document
+                                .getElementById(
+                                    "customTime"
+                                )
+                                .classList
+                                .remove("show");
+
+
+                            selectedTime =
+                                this.dataset.value;
+                        }
+                    }
+                );
+
+            });
+
+
+        /* =========================
+           VIETA
+        ========================= */
+
+
+        document
+            .querySelectorAll("#placeOptions .option")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        document
+                            .querySelectorAll(
+                                "#placeOptions .option"
+                            )
+                            .forEach(btn =>
+                                btn.classList.remove(
+                                    "selected"
+                                )
+                            );
+
+
+                        this.classList.add(
+                            "selected"
+                        );
+
+
+                        if (
+                            this.id ===
+                            "customPlaceButton"
+                        ) {
+
+                            document
+                                .getElementById(
+                                    "customPlace"
+                                )
+                                .classList
+                                .add("show");
+
+
+                            selectedPlace = "";
+
+                        } else {
+
+                            document
+                                .getElementById(
+                                    "customPlace"
+                                )
+                                .classList
+                                .remove("show");
+
+
+                            selectedPlace =
+                                this.dataset.value;
+                        }
+                    }
+                );
+
+            });
+
+
+        /* =========================
+           VEIKLA
+        ========================= */
+
+
+        document
+            .querySelectorAll("#activityOptions .option")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        document
+                            .querySelectorAll(
+                                "#activityOptions .option"
+                            )
+                            .forEach(btn =>
+                                btn.classList.remove(
+                                    "selected"
+                                )
+                            );
+
+
+                        this.classList.add(
+                            "selected"
+                        );
+
+
+                        if (
+                            this.id ===
+                            "customActivityButton"
+                        ) {
+
+                            document
+                                .getElementById(
+                                    "customActivity"
+                                )
+                                .classList
+                                .add("show");
+
+
+                            selectedActivity = "";
+
+                        } else {
+
+                            document
+                                .getElementById(
+                                    "customActivity"
+                                )
+                                .classList
+                                .remove("show");
+
+
+                            selectedActivity =
+                                this.dataset.value;
+                        }
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           PATEIKIMAS
+        ===================================================== */
+
+
+        function submitDate() {
+
+            const date =
+                document
+                    .getElementById("date")
+                    .value;
+
+
+            const customTime =
+                document
+                    .getElementById("customTime")
+                    .value;
+
+
+            const customPlace =
+                document
+                    .getElementById("customPlace")
+                    .value;
+
+
+            const customActivity =
+                document
+                    .getElementById("customActivity")
+                    .value;
+
+
+            const message =
+                document
+                    .getElementById("message")
+                    .value;
+
+
+            /* =========================
+               GALUTINĖS REIKŠMĖS
+            ========================= */
+
+
+            const finalTime =
+                customTime ||
+                selectedTime;
+
+
+            const finalPlace =
+                customPlace ||
+                selectedPlace;
+
+
+            const finalActivity =
+                customActivity ||
+                selectedActivity;
+
+
+            /* =========================
+               PATIKRINIMAS
+            ========================= */
+
+
+            if (!date) {
+
+                alert(
+                    "Pasirink datą 📅"
+                );
+
+                return;
+            }
+
+
+            if (!finalTime) {
+
+                alert(
+                    "Pasirink laiką 🕐"
+                );
+
+                return;
+            }
+
+
+            if (!finalPlace) {
+
+                alert(
+                    "Pasirink vietą 📍"
+                );
+
+                return;
+            }
+
+
+            if (!finalActivity) {
+
+                alert(
+                    "Pasirink veiklą 💕"
+                );
+
+                return;
+            }
+
+
+            /* =========================
+               DATOS FORMATAS
+            ========================= */
+
+
+            const formattedDate =
+                new Date(
+                    date + "T00:00:00"
+                ).toLocaleDateString(
+                    "lt-LT",
+                    {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    }
+                );
+
+
+            /* =========================
+               EMAILJS
+            ========================= */
+
+
+            const templateParams = {
+
+                date:
+                    formattedDate,
+
+                time:
+                    finalTime,
+
+                place:
+                    finalPlace,
+
+                activity:
+                    finalActivity,
+
+                message:
+                    message ||
+                    "Žinutės nėra 💕"
+            };
+
+
+            /*
+            JEIGU EMAILJS DAR NESUKONFIGŪRUOTAS,
+            TIESIOG PARODOM PATVIRTINIMĄ.
+            */
+
+
+            if (
+                EMAILJS_PUBLIC_KEY ===
+                "TAVO_PUBLIC_KEY"
+            ) {
+
+                showSuccess(
+                    formattedDate,
+                    finalTime,
+                    finalPlace,
+                    finalActivity,
+                    message
+                );
+
+                return;
+            }
+
+
+            /* =========================
+               SIUNČIAMAS LAIŠKAS
+            ========================= */
+
+
+            emailjs.send(
+
+                EMAILJS_SERVICE_ID,
+
+                EMAILJS_TEMPLATE_ID,
+
+                templateParams
+
+            )
+
+            .then(function() {
+
+                showSuccess(
+                    formattedDate,
+                    finalTime,
+                    finalPlace,
+                    finalActivity,
+                    message
+                );
+
+            })
+
+            .catch(function(error) {
+
+                console.error(
+                    error
+                );
+
+                alert(
+                    "Nepavyko išsiųsti laiško. " +
+                    "Patikrink EmailJS nustatymus."
+                );
+
+            });
+
+        }
+
+
+        /* =====================================================
+           SĖKMĖS EKRANAS
+        ===================================================== */
+
+
+        function showSuccess(
+            date,
+            time,
+            place,
+            activity,
+            message
+        ) {
+
+            document
+                .getElementById("dateScreen")
+                .classList
+                .add("hidden");
+
+
+            document
+                .getElementById("successScreen")
+                .classList
+                .remove("hidden");
+
+
+            document
+                .getElementById("chosenInfo")
+                .innerHTML = `
+
+                    <strong>📅 Data:</strong>
+                    ${date}
+
+                    <br>
+
+                    <strong>🕐 Laikas:</strong>
+                    ${time}
+
+                    <br>
+
+                    <strong>📍 Vieta:</strong>
+                    ${place}
+
+                    <br>
+
+                    <strong>💕 Veikla:</strong>
+                    ${activity}
+
+                    ${
+                        message
+                        ?
+                        `<br>
+                         <strong>💌 Žinutė:</strong>
+                         ${message}`
+                        :
+                        ""
+                    }
+
+                `;
+
+
+            createConfetti();
+
+        }
+
+
+        /* =====================================================
+           KONFETI
+        ===================================================== */
+
+
+        function createConfetti() {
+
+            const symbols = [
+
+                "❤️",
+                "💖",
+                "💕",
+                "💗",
+                "✨",
+                "🌸",
+                "💞"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < 60;
+                i++
+            ) {
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "confetti";
+
+
+                item.innerText =
+                    symbols[
+                        Math.floor(
+                            Math.random() *
+                            symbols.length
+                        )
+                    ];
+
+
+                item.style.left =
+                    Math.random() *
+                    100 +
+                    "vw";
+
+
+                item.style.fontSize =
+                    12 +
+                    Math.random() *
+                    20 +
+                    "px";
+
+
+                item.style.animationDuration =
+                    2 +
+                    Math.random() *
+                    2 +
+                    "s";
+
+
+                item.style.animationDelay =
+                    Math.random() *
+                    .5 +
+                    "s";
+
+
+                document.body.appendChild(
+                    item
+                );
+
+
+                setTimeout(
+                    () =>
+                        item.remove(),
+                    4500
+                );
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
